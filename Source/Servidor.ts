@@ -1,14 +1,17 @@
 // Importação de módulos e bibliotecas
 import "./Database";
 import "reflect-metadata";
-import express from "express";
-import { rotiador } from "./Rotas";
+import "express-async-errors";
+import { TratadorDeErros } from "./Middleware/TratadorDeErros";
+import { rotiador } from "./Middleware/Rotas";
+import express, { Request, Response, NextFunction, response } from "express";
 
 const app = express();
 
 // Midlewares
 app.use(express.json());
 app.use(rotiador);
+app.use(TratadorDeErros);
 
 // Servidor
 console.clear();

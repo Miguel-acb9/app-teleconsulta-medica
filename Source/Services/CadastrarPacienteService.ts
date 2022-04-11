@@ -2,7 +2,7 @@
 import { getCustomRepository } from "typeorm";
 import { PacientesRepositories } from "../Database/Repositories/PacientesRepositories";
 
-interface IMedicoRequest {
+interface IPacienteRequest {
     nome: string;
     cpf: string;
     idade: number;
@@ -13,19 +13,19 @@ interface IMedicoRequest {
 }
 
 class CadastrarPacienteService {
-   async executar({ nome, cpf, idade, endereco, telefone, email, senha }: IMedicoRequest) {
-       const pacientesRepository = getCustomRepository(PacientesRepositories);
-       
-       // Regras para cadastro
-       if(!email) { throw new Error("E-mail incorreto."); }
-       const usuarioExistente = await pacientesRepository.findOne({ email });
-       if(usuarioExistente) { throw new Error("Usuário já cadastrado."); }
+    async executar({ nome, cpf, idade, endereco, telefone, email, senha }: IPacienteRequest) {
+        const pacientesRepository = getCustomRepository(PacientesRepositories);
+        
+        // Regras para cadastro
+        if(!email) { throw new Error("E-mail ausente."); }
+        const usuarioExistente = await pacientesRepository.findOne({ email });
+        if(usuarioExistente) { throw new Error("Paciente já cadastrado."); }
 
-       const paciente = pacientesRepository.create({nome, cpf, idade, endereco, telefone, email, senha });
-       await pacientesRepository.save(paciente);
+        const paciente = pacientesRepository.create({ nome, cpf, idade, endereco, telefone, email, senha });
+        await pacientesRepository.save(paciente);
 
-       return paciente;
-   }
+        return paciente;
+    }
 }
 
 export { CadastrarPacienteService };
