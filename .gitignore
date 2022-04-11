@@ -1,1 +1,5 @@
+# Dependências
 node_modules
+
+# Diversos
+*.sqlite
