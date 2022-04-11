@@ -1,6 +1,7 @@
 // Importação de módulos e bibliotecas
 import { v4 as uuid } from "uuid";
-import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn, JoinColumn, OneToOne } from "typeorm";
+import { Especialidade } from "./Especialidade";
 
 @Entity("medicos")
 class Medico {
@@ -14,7 +15,7 @@ class Medico {
     crm: string;
 
     @Column()
-    especialidade: number;
+    id_especialidade: string;
 
     @Column()
     endereco: string;
@@ -33,6 +34,10 @@ class Medico {
 
     @UpdateDateColumn()
     atualizado_em: Date;
+
+    @JoinColumn({name: "id"})
+    @OneToOne(() => Especialidade)
+    especialidade: Especialidade
 
     constructor() {
         if(!this.id) { this.id = uuid(); }

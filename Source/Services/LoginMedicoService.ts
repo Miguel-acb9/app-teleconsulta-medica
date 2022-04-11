@@ -2,7 +2,7 @@
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { getCustomRepository } from "typeorm";
-import { AdministradoresRepositories } from "../Database/Repositories/AdministradoresRepositories";
+import { MedicosRepositories } from "../Database/Repositories/MedicosRepositories";
 
 interface ILoginRequest {
     email: string;
@@ -11,10 +11,10 @@ interface ILoginRequest {
 
 class LoginMedicoService {
     async executar({ email, senha }: ILoginRequest){
-        const administradoresRepositories = getCustomRepository(AdministradoresRepositories);
+        const medicoRepository = getCustomRepository(MedicosRepositories);
         
         // Regras de login
-        const medico = await administradoresRepositories.findOne({ email });
+        const medico = await medicoRepository.findOne({ email });
         if(!medico) { throw new Error("E-mail ou senha incorreta."); }
         const senhaCorrespondente = await compare(senha, medico.senha);
         if(!senhaCorrespondente) { throw new Error("E-mail ou senha incorreta."); }

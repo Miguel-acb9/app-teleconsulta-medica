@@ -16,7 +16,7 @@ class CadastrarConsultaService {
         
         // Regras para cadastro
         if(id_medico === id_paciente) { throw new Error("Paciente inválido."); }
-        const pacienteExiste = await pacienteRepository.findOne(id_medico);
+        const pacienteExiste = await pacienteRepository.findOne(id_paciente);
         if(!pacienteExiste) { throw new Error("Paciente inexistente."); }
 
 
