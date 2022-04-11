@@ -1,4 +1,5 @@
 // Importação de módulos e bibliotecas
+import { hash } from "bcryptjs";
 import { getCustomRepository } from "typeorm";
 import { AdministradoresRepositories } from "../Database/Repositories/AdministradoresRepositories";
 
@@ -16,8 +17,9 @@ class CadastrarAdministradorService {
         if(!email) { throw new Error("E-mail ausente."); }
         const usuarioExistente = await administradorRepository.findOne({ email });
         if(usuarioExistente) { throw new Error("Administrador já cadastrado."); }
-
-        const administrador = administradorRepository.create({ nome, email, senha });
+        const senhaHash = await hash(senha, 8);
+        
+        const administrador = administradorRepository.create({ nome, email, senha: senhaHash });
         await administradorRepository.save(administrador);
 
         return administrador;

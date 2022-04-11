@@ -4,7 +4,7 @@ import { Request, Response, NextFunction } from "express";
 
 interface IPayload { sub: string; }
 
-function ValidarAdministrador(request: Request, response: Response, proxima: NextFunction) {
+function ValidarPaciente(request: Request, response: Response, proxima: NextFunction) {
     const autenticacao = request.headers.authorization;
     if(!autenticacao) {  return response.status(401).end(); }
     const [, token] = autenticacao.split(" ");
@@ -18,4 +18,4 @@ function ValidarAdministrador(request: Request, response: Response, proxima: Nex
     }
 }
 
-export { ValidarAdministrador };
+export { ValidarPaciente };

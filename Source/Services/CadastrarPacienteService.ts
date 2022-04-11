@@ -1,4 +1,5 @@
 // Importação de módulos e bibliotecas
+import { hash } from "bcryptjs";
 import { getCustomRepository } from "typeorm";
 import { PacientesRepositories } from "../Database/Repositories/PacientesRepositories";
 
@@ -20,8 +21,9 @@ class CadastrarPacienteService {
         if(!email) { throw new Error("E-mail ausente."); }
         const usuarioExistente = await pacientesRepository.findOne({ email });
         if(usuarioExistente) { throw new Error("Paciente já cadastrado."); }
+        const senhaHash = await hash(senha, 8);
 
-        const paciente = pacientesRepository.create({ nome, cpf, idade, endereco, telefone, email, senha });
+        const paciente = pacientesRepository.create({ nome, cpf, idade, endereco, telefone, email, senha: senhaHash });
         await pacientesRepository.save(paciente);
 
         return paciente;

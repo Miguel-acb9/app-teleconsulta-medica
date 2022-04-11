@@ -1,7 +1,7 @@
 // Importação de módulos e bibliotecas
 import { Table, QueryRunner, MigrationInterface } from "typeorm";
 
-class CriarTabelaEspecialidade1649644005785 implements MigrationInterface {
+class CriarTabelaEspecialidades1649644005785 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
@@ -36,4 +36,4 @@ class CriarTabelaEspecialidade1649644005785 implements MigrationInterface {
     }
 }
 
-export { CriarTabelaEspecialidade1649644005785 };
+export { CriarTabelaEspecialidades1649644005785 };
