@@ -1,5 +1,5 @@
 // Importação de módulos e bibliotecas
-import "./Database";
+import "./Model";
 import "reflect-metadata";
 import "express-async-errors";
 import { rotiador } from "./Middleware/Rotas";

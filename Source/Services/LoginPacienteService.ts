@@ -2,7 +2,7 @@
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { getCustomRepository } from "typeorm";
-import { AdministradoresRepositories } from "../Database/Repositories/AdministradoresRepositories";
+import { AdministradoresRepositories } from "../Model/Repositories/AdministradoresRepositories";
 
 interface ILoginRequest {
     email: string;

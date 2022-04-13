@@ -1,7 +1,7 @@
 // Importação de módulos e bibliotecas
 import { getCustomRepository } from "typeorm";
-import { PacientesRepositories } from "../Database/Repositories/PacientesRepositories";
-import { ConsultasRepositories } from "../Database/Repositories/ConsultasRepositories";
+import { PacientesRepositories } from "../Model/Repositories/PacientesRepositories";
+import { ConsultasRepositories } from "../Model/Repositories/ConsultasRepositories";
 
 interface IConsultaRequest {
     id_medico: string;

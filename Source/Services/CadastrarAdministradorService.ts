@@ -1,7 +1,7 @@
 // Importação de módulos e bibliotecas
 import { hash } from "bcryptjs";
 import { getCustomRepository } from "typeorm";
-import { AdministradoresRepositories } from "../Database/Repositories/AdministradoresRepositories";
+import { AdministradoresRepositories } from "../Model/Repositories/AdministradoresRepositories";
 
 interface IAdministradorRequest {
     nome: string;

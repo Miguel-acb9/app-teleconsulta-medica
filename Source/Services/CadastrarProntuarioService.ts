@@ -1,6 +1,6 @@
 // Importação de módulos e bibliotecas
 import { getCustomRepository } from "typeorm";
-import { ProntuariosRepositories } from "../Database/Repositories/ProntuariosRepositories";
+import { ProntuariosRepositories } from "../Model/Repositories/ProntuariosRepositories";
 
 class CadastrarProntuarioService {
     async executar(descricao: string) {
