@@ -37,7 +37,7 @@ class CriarTabelaConsultas1649647883086 implements MigrationInterface {
                 ],
                 foreignKeys: [
                     {
-                        name: "FK_Medicos_Consultas",
+                        name: "FK_MedicosConsultas",
                         referencedTableName: "medicos",
                         referencedColumnNames: [ "id" ],
                         columnNames: [ "id_medico" ],
@@ -45,7 +45,7 @@ class CriarTabelaConsultas1649647883086 implements MigrationInterface {
                         onUpdate: "SET NULL",
                     },
                     {
-                        name: "FK_Pacientes_Consultas",
+                        name: "FK_PacientesConsultas",
                         referencedTableName: "pacientes",
                         referencedColumnNames: [ "id" ],
                         columnNames: [ "id_paciente" ],
@@ -53,12 +53,12 @@ class CriarTabelaConsultas1649647883086 implements MigrationInterface {
                         onUpdate: "SET NULL",
                     },
                     {
-                        name: "FK_Prontuarios_Consultas",
+                        name: "FK_ProntuariosConsultas",
                         referencedTableName: "prontuarios",
                         referencedColumnNames: [ "id" ],
                         columnNames: [ "id_prontuario" ],
-                        onDelete: "CASCADE",
-                        onUpdate: "CASCADE",
+                        onDelete: "SET NULL",
+                        onUpdate: "SET NULL",
                     }
                 ]
             })

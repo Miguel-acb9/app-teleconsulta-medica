@@ -35,6 +35,17 @@ Criar banco de dados
 yarn typeorm migration:run
 ```
 
+
+
+
+
+
+yarn typeorm migration:create -n CriarPaciente
+
+
+
+
+
 # 📋 Tabelas
 
 ## Médico
@@ -42,7 +53,7 @@ yarn typeorm migration:run
 | -- | ----------------- | --------- | ---------------------------------------------------------- |
 |  1 | id(PK)            | uuid      | Chave primaria de identificação do médico                  |
 |  2 | nome              | varchar   | Nome do médico                                             |
-|  3 | crm               | varchar   | Conselho Regional de Medicina                              |
+|  3 | crm               | varchar   |                                                            |
 |  4 | especialidade(FK) | uuid      | Chave estrangeira de identificação da especialidade médica |
 |  5 | endereco          | varchar   | Endereço do médico                                         |
 |  6 | telefone          | varchar   | Telefone de contato do médico                              |
@@ -101,82 +112,6 @@ yarn typeorm migration:run
 |  5 | criado_em     | timestamp | Data de criação do cadastro                      |
 |  6 | atualizado_em | timestamp | Data de atualização do cadastro                  |
 
-# Testes no Insominia
-
-## Cadastros
-```JSON
-// Administrador
-{
-	"nome": "Fulano",
-	"email": "fulano@email.com",
-	"senha": "senha123"
-}
-
-// Especialidade
-{
-	"especialidade": "Cardiologia"
-}
-
-// Médico
-{
-	"nome": "Ciclano",
-	"crm": "CRM/GO 111111",
-	"id_especialidade": "",
-	"endereco": "Rua 2, 2, setor central, Goiânia, Goiás",
-	"telefone": "(62)92222-2222",
-	"email": "ciclano@email.com",
-	"senha": "senha123"
-}
-
-// Paciente
-{
-	"nome": "Beltrano",
-	"cpf": "111.111.111-11",
-	"idade": "30",
-	"endereco": "Rua 1, 1, setor central, Goiânia, Goiás",
-	"telefone": "(62)91111-1111",
-	"email": "beltrano@email.com",
-	"senha": "senha123"
-}
-
-// Prontuário
-{
-	"descricao": "Vai morrer em 2 dias."
-}
-
-// Consulta
-{
-	"id_medico": "",
-	"id_paciente": "",
-	"id_prontuario": ""
-}
-```
-
-## Login
-```JSON
-// Médico
-{
-	"email": "Ciclano@email.com",
-	"senha": "senha123"
-}
-// Paciente
-{
-	"email": "Beltrano@email.com",
-	"senha": "senha123"
-}
-// Administrador
-{
-	"email": "fulano@email.com",
-	"senha": "senha123"
-}
-```
-
-## Exclusões
-```JSON
-{
-	"id": ""
-}
-```
 
 
 

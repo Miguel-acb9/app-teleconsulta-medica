@@ -8,7 +8,7 @@ class LoginAdministradorController {
         const loginAdministradorService = new LoginAdministradorService();
         const token = await loginAdministradorService.executar({ email, senha });
 
-        return response.json(token);
+        return token;
     }
 }
 

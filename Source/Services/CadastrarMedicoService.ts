@@ -6,7 +6,7 @@ import { MedicosRepositories } from "../Database/Repositories/MedicosRepositorie
 interface IMedicoRequest {
     nome: string;
     crm: string;
-    id_especialidade: string;
+    especialidade: number;
     endereco: string;
     telefone: string;
     email: string;
@@ -14,7 +14,7 @@ interface IMedicoRequest {
 }
 
 class CadastrarMedicoService {
-    async executar({ nome, crm, id_especialidade, endereco, telefone, email, senha }: IMedicoRequest) {
+    async executar({ nome, crm, especialidade, endereco, telefone, email, senha }: IMedicoRequest) {
         const medicoRepository = getCustomRepository(MedicosRepositories);
         
         // Regras para cadastro
@@ -23,7 +23,7 @@ class CadastrarMedicoService {
         if(usuarioExistente) { throw new Error("Médico já cadastrado."); }
         const senhaHash = await hash(senha, 8);
 
-        const medico = medicoRepository.create({ nome, crm, id_especialidade, endereco, telefone, email, senha: senhaHash });
+        const medico = medicoRepository.create({ nome, crm, especialidade, endereco, telefone, email, senha: senhaHash });
         await medicoRepository.save(medico);
 
         return medico;

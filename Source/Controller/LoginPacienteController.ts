@@ -8,7 +8,7 @@ class LoginPacienteController {
         const loginPacienteService = new LoginPacienteService();
         const token = await loginPacienteService.executar({ email, senha });
 
-        return response.json(token);
+        return token;
     }
 }
 

@@ -2,7 +2,7 @@
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { getCustomRepository } from "typeorm";
-import { PacientesRepositories } from "../Database/Repositories/PacientesRepositories";
+import { AdministradoresRepositories } from "../Database/Repositories/AdministradoresRepositories";
 
 interface ILoginRequest {
     email: string;
@@ -11,7 +11,7 @@ interface ILoginRequest {
 
 class LoginPacienteService {
     async executar({ email, senha }: ILoginRequest){
-        const administradoresRepositories = getCustomRepository(PacientesRepositories);
+        const administradoresRepositories = getCustomRepository(AdministradoresRepositories);
         
         // Regras de login
         const paciente = await administradoresRepositories.findOne({ email });

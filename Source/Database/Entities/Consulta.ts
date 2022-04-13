@@ -19,23 +19,23 @@ class Consulta {
     @Column()
     id_prontuario: string;
 
+    @JoinColumn({name: "id_medico"})
+    @OneToOne(() => Medico)
+    medico: Medico
+
+    @JoinColumn({name: "id_paciente"})
+    @OneToOne(() => Paciente)
+    paciente: Paciente
+
+    @JoinColumn({name: "id_prontuario"})
+    @OneToOne(() => Prontuario)
+    prontuario: Prontuario
+
     @CreateDateColumn()
     criado_em: Date;
 
     @UpdateDateColumn()
     atualizado_em: Date;
-
-    @JoinColumn({name: "id_medico"})
-    @OneToOne(() => Medico, { onDelete: "CASCADE" })
-    medico: Medico
-
-    @JoinColumn({name: "id_paciente"})
-    @OneToOne(() => Paciente, { onDelete: "CASCADE" })
-    paciente: Paciente
-
-    @JoinColumn({name: "id_prontuario"})
-    @OneToOne(() => Prontuario, { onDelete: "CASCADE" })
-    prontuario: Prontuario
 
     constructor() {
         if(!this.id) { this.id = uuid(); }

@@ -21,8 +21,8 @@ class CriarTabelaMedicos1649636378086 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
-                        name: "id_especialidade",
-                        type: "uuid"
+                        name: "especialidade",
+                        type: "int"
                     },
                     {
                         name: "endereco",
@@ -50,16 +50,6 @@ class CriarTabelaMedicos1649636378086 implements MigrationInterface {
                         type: "timestamp",
                         default: "now()"
                     },
-                ],
-                foreignKeys: [
-                    {
-                        name: "FK_Especialidade_Medicos",
-                        referencedTableName: "especialidades",
-                        referencedColumnNames: [ "id" ],
-                        columnNames: [ "id_especialidade" ],
-                        onDelete: "SET NULL",
-                        onUpdate: "SET NULL",
-                    }
                 ]
             })
         );
