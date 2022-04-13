@@ -1,6 +1,6 @@
 // Importação de Módulos e Bibliotecas
 import { getCustomRepository } from "typeorm";
-import { ProntuariosRepositories } from "../Database/Repositories/ProntuariosRepositories";
+import { ProntuariosRepositories } from "../Model/Repositories/ProntuariosRepositories";
 
 class ExcluirProntuarioService {
     async executar(id: string) {

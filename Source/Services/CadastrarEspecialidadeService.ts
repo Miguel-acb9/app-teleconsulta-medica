@@ -1,6 +1,6 @@
 // Importação de módulos e bibliotecas
 import { getCustomRepository } from "typeorm";
-import { EspecialidadesRepositories } from "../Database/Repositories/EspecialidadesRepositories";
+import { EspecialidadesRepositories } from "../Model/Repositories/EspecialidadesRepositories";
 
 class CadastrarEspecialidadeService {
     async executar(especialidade: string) {

@@ -1,7 +1,7 @@
 // Importação de módulos e bibliotecas
 import { hash } from "bcryptjs";
 import { getCustomRepository } from "typeorm";
-import { MedicosRepositories } from "../Database/Repositories/MedicosRepositories";
+import { MedicosRepositories } from "../Model/Repositories/MedicosRepositories";
 
 interface IMedicoRequest {
     nome: string;

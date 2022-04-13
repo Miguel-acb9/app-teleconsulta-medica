@@ -1,5 +1,5 @@
 // Importação de módulos e bibliotecas
-import { Router } from "express";
+import { response, Router } from "express";
 import { ValidarMedico } from "./ValidarMedico";
 import { ValidarPaciente } from "./ValidarPaciente";
 import { ValidarAdministrador } from "./ValidarAdministrador";
@@ -31,21 +31,21 @@ const listarConsultasController = new ListarConsultasController();
 const listarProntuariosController = new ListarProntuariosController();
 const cadastrarConsultaController = new CadastrarConsultaController();
 const cadastrarPacienteController = new CadastrarPacienteController();
+const excluirProntuarioController = new ExcluirProntuarioController();
 const loginAdministradorController = new LoginAdministradorController();
 const cadastrarProntuarioController = new CadastrarProntuarioController();
 const listarEspecialidadesController = new ListarEspecialidadesController();
 const listarAdministradoresController = new ListarAdministradoresController();
 const cadastrarAdministradorController = new CadastrarAdministradorController();
 const cadastrarEspecialidadeController = new CadastrarEspecialidadeController();
-const excluirProntuarioController = new ExcluirProntuarioController();
 
 // Rotas GET dos controladores
 rotiador.get("/listar-especialidades", listarEspecialidadesController.tratar);
 rotiador.get("/listar-medicos", ValidarAdministrador, listarMedicosController.tratar);
 rotiador.get("/listar-pacientes", ValidarAdministrador, listarPacientesController.tratar);
-rotiador.get("/listar-prontuarios", ValidarAdministrador, listarProntuariosController.tratar);
 rotiador.get("/listar-meus-atendimentos", ValidarMedico, listarConsultasController.tratar);
 rotiador.get("/listar-minhas-consultas", ValidarPaciente, listarConsultasController.tratar);
+rotiador.get("/listar-prontuarios", ValidarAdministrador, listarProntuariosController.tratar);
 rotiador.get("/listar-administradores", ValidarAdministrador, listarAdministradoresController.tratar);
 
 // Rotas POST dos constroladores

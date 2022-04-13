@@ -1,6 +1,6 @@
 // Importação de Módulos e Bibliotecas
 import { getCustomRepository } from "typeorm";
-import { ConsultasRepositories } from "../Database/Repositories/ConsultasRepositories";
+import { ConsultasRepositories } from "../Model/Repositories/ConsultasRepositories";
 
 class ListarConsultasService {
     async executar() {

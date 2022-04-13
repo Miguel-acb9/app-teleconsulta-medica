@@ -2,7 +2,7 @@
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { getCustomRepository } from "typeorm";
-import { PacientesRepositories } from "../Database/Repositories/PacientesRepositories";
+import { PacientesRepositories } from "../Model/Repositories/PacientesRepositories";
 
 interface ILoginRequest {
     email: string;

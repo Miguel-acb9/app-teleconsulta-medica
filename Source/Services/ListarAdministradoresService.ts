@@ -1,6 +1,6 @@
 // Importação de Módulos e Bibliotecas
 import { getCustomRepository } from "typeorm";
-import { AdministradoresRepositories } from "../Database/Repositories/AdministradoresRepositories";
+import { AdministradoresRepositories } from "../Model/Repositories/AdministradoresRepositories";
 
 class ListarAdministradoresService {
     async executar() {
